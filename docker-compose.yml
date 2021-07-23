@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    web:
+        build: .
+        command: python manage.py runserver 0.0.0.0:8000
+        ports:
+            - 8000:8000
+    nginx:
+        build:
+          context:  ./nginx
+          dockerfile: Dockerfile
+        volumes:
+          - /home/ec2-user/ackmyconfig.com:/etc/nginx/certs
+        ports:
+          - '80:80'
+          - '443:443'
+        depends_on:
+          - web

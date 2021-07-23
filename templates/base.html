@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		    <li class="nav-item">
+          <a class="nav-link" href="{% url 'Home_Page' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Parser_Page' %}">Cisco Configuration parser</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Network_Page' %}">Network Data</a>
+        </li>	     
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Code Block -->
+
+
+<!-- Background -->
+<style>
+.container {
+  position: relative;
+  text-align: left;
+  color: white;
+}
+
+/* Bottom left text */
+.top-left {
+  position: absolute;
+  top: 90px;
+  left: 16px;
+}
+
+.time_container {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+}
+
+.upload_file{
+  left: 1px;
+}
+
+</style>
+<div class="img-fluid">
+<img src="{% static 'images\background.png' %}" class="img-fluid" alt="...">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>
