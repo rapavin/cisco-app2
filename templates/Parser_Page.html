@@ -9,7 +9,7 @@
     <section id="header">
       <div class="container">
         <div class="upload">
-          <h4>upload cisco "show running" configuration to parse:</h4>
+          <h4>Upload cisco "show running" configuration to parse:</h4>
           <div class="upload_file">
             <form enctype="multipart/form-data" method="post" action="{% url 'upload_read' %}"><br>
               {% csrf_token %}
@@ -21,24 +21,24 @@
                   </div>
                   <label class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="NTP" />
-                    <span class="checkmark">NTP</span>
-                  </label>
+                    <span class="checkmark">AAA</span>
+                  </label><br>
                   <label class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="AAA" />
-                    <span class="checkmark">AAA</span>
-                  </label>
+                    <span class="checkmark">NTP</span>
+                  </label><br>
                   <label class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="LOGS" />
-                    <span class="checkmark">Logging</span>
-                  </label>
+                    <span class="checkmark">LOGGING</span>
+                  </label><br>
                   <label class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="CLOCK INFORMATION" />
-                    <span class="checkmark">Clock Information</span>
-                  </label>
+                    <span class="checkmark">CLOCK INFORMATION</span>
+                  </label><br>
                   <label class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="SERVICES" />
-                    <span class="checkmark">Services</span>
-                  </label>
+                    <span class="checkmark">SERVICES</span>
+                  </label><br>
                   <label class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="SNMP" />
                     <span class="checkmark">SNMP</span>
