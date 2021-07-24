@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="styles.css">
 
 <div class="top-left">
-
   <body>
     <section id="header">
       <div class="container">
@@ -15,11 +14,9 @@
             <form enctype="multipart/form-data" method="post" action="{% url 'upload_read' %}"><br>
               {% csrf_token %}
               <input type="file" name="running_config"><br><br>
-              
               <div class="table_container">
                 <div class="left_child">
                   <div class="heading">
-                    
                     <h4>Services</h4>
                   </div>
                   <label class="container_checkbox">NTP
@@ -53,9 +50,9 @@
                     <h4>Interfaces</h4>
                   </div>
                   <div class="left_align">
-                    <label class="container_checkbox">Interface
+                    <label class="container_checkbox">
                       <input type="checkbox" name="checklist[]" checked="checked" value="INTERFACE" />
-                      <span class="checkmark"></span>
+                      <span class="checkmark">Interface</span>
                     </label>
                     <label class="container_checkbox">Description
                       <input type="checkbox" name="checklist[]" checked="checked" value="DESCRIPTION" />
