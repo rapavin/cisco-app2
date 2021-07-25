@@ -45,8 +45,8 @@ function service_dropbox_down() {
 }
 
 function interface_dropbox_right() {
-  document.getElementById('interface_left_options').style.display='none';
-  document.getElementById('interface_right_options').style.display='none';
+  document.getElementById('interface_left_options').style.display='block';
+  document.getElementById('interface_right_options').style.display='block';
   document.getElementById('interface_arrow').className = "arrow down";
   document.getElementById('interface_arrow').setAttribute( "onClick", "javascript: interface_dropbox_down();" );
 }
