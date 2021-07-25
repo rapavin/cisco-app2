@@ -47,15 +47,15 @@ function service_dropbox_down() {
 function interface_dropbox_right() {
   document.getElementById('interface_left_options').style.display='none';
   document.getElementById('interface_right_options').style.display='none';
-  document.getElementById('arrow').className = "arrow down";
-  document.getElementById('arrow').setAttribute( "onClick", "javascript: interface_dropbox_down();" );
+  document.getElementById('interface_arrow').className = "arrow down";
+  document.getElementById('interface_arrow').setAttribute( "onClick", "javascript: interface_dropbox_down();" );
 }
 
 function interface_dropbox_down() {
   document.getElementById('interface_left_options').style.display='none';
   document.getElementById('interface_right_options').style.display='none';
-  document.getElementById('arrow').className = "arrow right";
-  document.getElementById('arrow').setAttribute( "onClick", "javascript: interface_dropbox_right();" );
+  document.getElementById('interface_arrow').className = "arrow right";
+  document.getElementById('interface_arrow').setAttribute( "onClick", "javascript: interface_dropbox_right();" );
 }
 	
 </script>
@@ -107,7 +107,7 @@ function interface_dropbox_down() {
 
                 <div class="right_child">
                   <div class="heading">
-		    <h4>Interfaces&nbsp;&nbsp;&nbsp;<a href="#"><i id="arrow" onclick="service_dropbox_down();" class="arrow down"></i></a></h4>
+		    <h4>Interfaces&nbsp;&nbsp;&nbsp;<a href="#"><i id="interface_arrow" onclick="service_dropbox_down();" class="arrow down"></i></a></h4>
                   </div>
                   <div id="interface_left_options" class="left_align">
                     <label class="container_checkbox">
