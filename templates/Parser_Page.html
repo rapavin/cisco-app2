@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 .arrow {
-  border: solid black;
+  border: solid white;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -31,6 +31,19 @@
   -webkit-transform: rotate(45deg);
 }
 </style>
+<script>
+function service_dropbox_right() {
+  document.getElementById('services_options').style.display = "block";
+  document.getElementById('arrow').className = "arrow down";
+  document.getElementById('arrow').setAttribute( "onClick", "javascript: service_dropbox_down();" );
+}
+
+function service_dropbox_down() {
+  document.getElementById('services_options').style.display='none';
+  document.getElementById('arrow').className = "arrow right";
+  document.getElementById('arrow').setAttribute( "onClick", "javascript: service_dropbox_right();" );
+}
+</script>
 <div class="top-left">
   <body>
     <section id="header">
@@ -42,36 +55,41 @@
               {% csrf_token %}
               <input type="file" name="running_config"><br><br>
               <div class="table_container">
-                <div class="left_child">
                   <div class="heading">
-                    <h4>Services <i class="arrow down"></i></h4>
+                    <h4>Services&nbsp;&nbsp;&nbsp;<a href="#"><i id="arrow" onclick="service_dropbox_down();" class="arrow down"></i></a></h4>
                   </div>
-                  <label class="container_checkbox">
-                    <input type="checkbox" name="checklist[]" checked="checked" value="NTP" />
-                    <span class="checkmark">AAA</span>
-                  </label><br>
-                  <label class="container_checkbox">
+                <div id="services_options" class="left_child">
+                  <label id="aaa" class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="AAA" />
-                    <span class="checkmark">NTP</span>
-                  </label><br>
-                  <label class="container_checkbox">
-                    <input type="checkbox" name="checklist[]" checked="checked" value="LOGS" />
-                    <span class="checkmark">LOGGING</span>
-                  </label><br>
-                  <label class="container_checkbox">
+                    <span class="checkmark">AAA</span>
+                  </label>
+	          <br>
+                  <label id="clock" class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="CLOCK INFORMATION" />
                     <span class="checkmark">CLOCK INFORMATION</span>
-                  </label><br>
-                  <label class="container_checkbox">
+                  </label>
+		  <br>
+                  <label id="logging" class="container_checkbox">
+                    <input type="checkbox" name="checklist[]" checked="checked" value="LOGS" />
+                    <span class="checkmark">LOGGING</span>
+                  </label>
+		  <br>
+                  <label id="ntp" class="container_checkbox">
+                    <input type="checkbox" name="checklist[]" checked="checked" value="NTP" />
+                    <span class="checkmark">NTP</span>
+                  </label>
+		  <br>
+                  <label id="services" class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="SERVICES" />
                     <span class="checkmark">SERVICES</span>
-                  </label><br>
-                  <label class="container_checkbox">
+                  </label>
+		  <br>
+                  <label id="snmp" class="container_checkbox">
                     <input type="checkbox" name="checklist[]" checked="checked" value="SNMP" />
                     <span class="checkmark">SNMP</span>
                   </label>
                 </div>
-                
+
                 <div class="right_child">
                   <div class="heading">
                     <h4>Interfaces</h4>
