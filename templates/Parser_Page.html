@@ -43,6 +43,21 @@ function service_dropbox_down() {
   document.getElementById('arrow').className = "arrow right";
   document.getElementById('arrow').setAttribute( "onClick", "javascript: service_dropbox_right();" );
 }
+
+function interface_dropbox_right() {
+  document.getElementById('interface_left_options').style.display='none';
+  document.getElementById('interface_right_options').style.display='none';
+  document.getElementById('arrow').className = "arrow down";
+  document.getElementById('arrow').setAttribute( "onClick", "javascript: interface_dropbox_down();" );
+}
+
+function interface_dropbox_down() {
+  document.getElementById('interface_left_options').style.display='none';
+  document.getElementById('interface_right_options').style.display='none';
+  document.getElementById('arrow').className = "arrow right";
+  document.getElementById('arrow').setAttribute( "onClick", "javascript: interface_dropbox_right();" );
+}
+	
 </script>
 <div class="top-left">
   <body>
@@ -92,9 +107,9 @@ function service_dropbox_down() {
 
                 <div class="right_child">
                   <div class="heading">
-                    <h4>Interfaces</h4>
+		    <h4>Interfaces&nbsp;&nbsp;&nbsp;<a href="#"><i id="arrow" onclick="service_dropbox_down();" class="arrow down"></i></a></h4>
                   </div>
-                  <div class="left_align">
+                  <div id="interface_left_options" class="left_align">
                     <label class="container_checkbox">
                       <input type="checkbox" name="checklist[]" checked="checked" value="INTERFACE" />
                       <span class="checkmark">Interface</span>
@@ -148,7 +163,7 @@ function service_dropbox_down() {
                       <span class="checkmark">IP DHCP Snooping</span>
                     </label>
                   </div>
-                  <div class="right_align">
+                  <div id="interface_right_options" class="right_align">
                     <label class="container_checkbox">
                       <input type="checkbox" name="checklist[]" checked="checked" value="SPANNING-TREE LINK TYPE" />
                       <span class="checkmark">Spanning-tree Link-type</span>
