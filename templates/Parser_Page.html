@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="styles.css">
+<style>
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+</style>
+<script>
+function service_dropbox_right() {
+  document.getElementById('services_options').style.display = "block";
+  document.getElementById('arrow').className = "arrow down";
+  document.getElementById('arrow').setAttribute( "onClick", "javascript: service_dropbox_down();" );
+}
+
+function service_dropbox_down() {
+  document.getElementById('services_options').style.display='none';
+  document.getElementById('arrow').className = "arrow right";
+  document.getElementById('arrow').setAttribute( "onClick", "javascript: service_dropbox_right();" );
+}
+</script>
+<div class="top-left">
+  <body>
+    <section id="header">
+      <div class="container">
+        <div class="upload">
+          <h4>Upload cisco "show running" configuration to parse:</h4>
+          <div class="upload_file">
+            <form enctype="multipart/form-data" method="post" action="{% url 'upload_read' %}"><br>
+              {% csrf_token %}
+              <input type="file" name="running_config"><br><br>
+              <div class="table_container">
+                  <div class="heading">
+                    <h4>Services&nbsp;&nbsp;&nbsp;<a href="#"><i id="arrow" onclick="service_dropbox_down();" class="arrow down"></i></a></h4>
+                  </div>
+                <div id="services_options" class="left_child">
+                  <label id="aaa" class="container_checkbox">
+                    <input type="checkbox" name="checklist[]" checked="checked" value="AAA" />
+                    <span class="checkmark">AAA</span>
+                  </label>
+	          <br>
+                  <label id="clock" class="container_checkbox">
+                    <input type="checkbox" name="checklist[]" checked="checked" value="CLOCK INFORMATION" />
+                    <span class="checkmark">CLOCK INFORMATION</span>
+                  </label>
+		  <br>
+                  <label id="logging" class="container_checkbox">
+                    <input type="checkbox" name="checklist[]" checked="checked" value="LOGS" />
+                    <span class="checkmark">LOGGING</span>
+                  </label>
+		  <br>
+                  <label id="ntp" class="container_checkbox">
+                    <input type="checkbox" name="checklist[]" checked="checked" value="NTP" />
+                    <span class="checkmark">NTP</span>
+                  </label>
+		  <br>
+                  <label id="services" class="container_checkbox">
+                    <input type="checkbox" name="checklist[]" checked="checked" value="SERVICES" />
+                    <span class="checkmark">SERVICES</span>
+                  </label>
+		  <br>
+                  <label id="snmp" class="container_checkbox">
+                    <input type="checkbox" name="checklist[]" checked="checked" value="SNMP" />
+                    <span class="checkmark">SNMP</span>
+                  </label>
+                </div>
+                
+                <div class="right_child">
+                  <div class="heading">
+                    <h4>Interfaces</h4>
+                  </div>
+                  <div class="left_align">
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="INTERFACE" />
+                      <span class="checkmark">Interface</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="DESCRIPTION" />
+                      <span class="checkmark">Description</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="IP ADDRESS" />
+                      <span class="checkmark">IP Address</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SWITCHPORT MODE" />
+                      <span class="checkmark">Switchport Mode</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SWITCHPORT ACCESS VLAN" />
+                      <span class="checkmark">Switchport Access Vlan</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SWITCHPORT VOICE VLAN" />
+                      <span class="checkmark">Switchport Voice Vlan</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SWITCHPORT TRUNK NATIVE" />
+                      <span class="checkmark">Switchport Trunk Native</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SWITCHPORT TRUNK ALLOWED VLAN" />
+                      <span class="checkmark">Switchport Trunk Allowed Vlan</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="IP HELPER-ADDRESS" />
+                      <span class="checkmark">IP Helper Address</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SWITCHPORT NONEGOTIATE" />
+                      <span class="checkmark">Switchport Nonegotiate</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="LOGGING" />
+                      <span class="checkmark">Logging</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="UDLD PORT AGGRESSIVE" />
+                      <span class="checkmark">Udld Port Aggressive</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="IP DHCP SNOOPING" />
+                      <span class="checkmark">IP DHCP Snooping</span>
+                    </label>
+                  </div>
+                  <div class="right_align">
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SPANNING-TREE LINK TYPE" />
+                      <span class="checkmark">Spanning-tree Link-type</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SWITCHPORT PORT-SECURITY" />
+                      <span class="checkmark">Switchport Port-Security</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="DEVICE TRACKING" />
+                      <span class="checkmark">Device</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SRR-QUEUE" />
+                      <span class="checkmark">SRR-Queue</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SPANNING-TREE PORTFAST" />
+                      <span class="checkmark">Spanning-Tree Portfast</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SPANNING-TREE BPDUGUARD" />
+                      <span class="checkmark">Spanning-Tree Bpduguard</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SPANNING-TREE GUARD ROOT" />
+                      <span class="checkmark">Spanning-Tree Guard Root</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SERVICE POLICY" />
+                      <span class="checkmark">Service Policy</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="PIM MODE" />
+                      <span class="checkmark">PIM Mode</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="REDIRECTS" />
+                      <span class="checkmark">Redirects</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="UNREACHABLES" />
+                      <span class="checkmark">Unreachables</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="ACCESS-GROUP" />
+                      <span class="checkmark">Access Group</span>
+                    </label>
+                    <label class="container_checkbox">
+                      <input type="checkbox" name="checklist[]" checked="checked" value="SHUTDOWN" />
+                      <span class="checkmark">Shutdown</span>
+                    </label>
+                  </div>
+                </div>
+                <input type="submit" value="Download configuration excel format">
+            </form>
+          </div>
+        </div>
+    </section>
+  </body>
+</div>
+{% endblock %}

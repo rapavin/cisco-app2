@@ -1,0 +1,4 @@
+Value SHOW_RUN_SHOW_SNMP (.*)
+
+Start
+  ^snmp-server ${SHOW_RUN_SHOW_SNMP} -> Record
