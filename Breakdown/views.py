@@ -19,6 +19,9 @@ def Home_Page(request):
 def Cisco_Parser_Page(request):
     return render(request, 'Cisco_Parser_Page.html')
 
+def Aruba_Parser_Page(request):
+    return render(request, 'Aruba_Parser_Page.html')
+
 def Network_Page(request):
     return render(request, 'Network_Page.html')
 
