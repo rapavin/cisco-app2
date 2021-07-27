@@ -16,8 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 def Home_Page(request):
     return render(request, 'base.html')
 
-def Parser_Page(request):
-    return render(request, 'Parser_Page.html')
+def Cisco_Parser_Page(request):
+    return render(request, 'Cisco_Parser_Page.html')
 
 def Network_Page(request):
     return render(request, 'Network_Page.html')
